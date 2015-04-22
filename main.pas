@@ -488,12 +488,12 @@ begin
 			writeln();
 			iA:= iA+1;
 			writeln(iA, '. ', eSB[i].sNamaBaju);
-			writeln('Kategori Baju : ', eSB[i].sKategoriBaju);
-			writeln('Bahan Baju : ', eSB[i].sBahanBaju);
-			writeln('Warna : ', eSB[i].sWarnaBaju);
-			writeln('S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
-			writeln('Rp. ', eSB[i].iHarga);
-			writeln('Banyak dibeli : ', eSB[i].iJumlahPembelian);
+			writeln('    Kategori Baju : ', eSB[i].sKategoriBaju);
+			writeln('    Bahan Baju : ', eSB[i].sBahanBaju);
+			writeln('    Warna : ', eSB[i].sWarnaBaju);
+			writeln('    S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
+			writeln('    Rp. ', eSB[i].iHarga);
+			writeln('    Banyak dibeli : ', eSB[i].iJumlahPembelian);
 			bCek := true;
 		end
 		else if sKeyword = eSB[i].sKategoriBaju then
@@ -501,12 +501,12 @@ begin
 			writeln();
 			iA:= iA+1;
 			writeln(iA, '. ', eSB[i].sKategoriBaju);
-			writeln('Nama Baju : ', eSB[i].sNamaBaju);
-			writeln('Bahan Baju : ', eSB[i].sBahanBaju);
-			writeln('Warna : ', eSB[i].sWarnaBaju);
-			writeln('S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
-			writeln('Rp. ', eSB[i].iHarga);
-			writeln('Banyak dibeli : ', eSB[i].iJumlahPembelian);
+			writeln('    Nama Baju : ', eSB[i].sNamaBaju);
+			writeln('    Bahan Baju : ', eSB[i].sBahanBaju);
+			writeln('    Warna : ', eSB[i].sWarnaBaju);
+			writeln('    S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
+			writeln('    Rp. ', eSB[i].iHarga);
+			writeln('    Banyak dibeli : ', eSB[i].iJumlahPembelian);
 			bCek := true;
 		end
 		else if sKeyword = eSB[i].sWarnaBaju then
@@ -514,12 +514,12 @@ begin
 			writeln();
 			iA:= iA+1;
 			writeln(iA, '. ', eSB[i].sWarnaBaju);
-			writeln('Nama Baju : ', eSB[i].sNamaBaju);
-			writeln('Kategori Baju : ', eSB[i].sKategoriBaju);
-			writeln('Bahan Baju : ', eSB[i].sBahanBaju);
-			writeln('S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
-			writeln('Rp. ', eSB[i].iHarga);
-			writeln('Banyak dibeli : ', eSB[i].iJumlahPembelian);
+			writeln('    Nama Baju : ', eSB[i].sNamaBaju);
+			writeln('    Kategori Baju : ', eSB[i].sKategoriBaju);
+			writeln('    Bahan Baju : ', eSB[i].sBahanBaju);
+			writeln('    S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
+			writeln('    Rp. ', eSB[i].iHarga);
+			writeln('    Banyak dibeli : ', eSB[i].iJumlahPembelian);
 			bCek := true;
 		end;
 	end;
@@ -527,7 +527,7 @@ begin
 //Pemberitahuan jika barang yang dicari tidak tersedia
 	if not(bCek) then
 	begin
-		writeln('Barang Tidak Tersedia');
+		writeln('    Barang Tidak Tersedia');
 	end;
 
 end;
