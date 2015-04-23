@@ -449,82 +449,92 @@ end;
 // Pencarian menggunakan kata kunci nama baju, kategori baju, dan warna baju
 
 {
-  ==================
-  - Search Clothes -
-  ==================
-  Masukkan kata kunci : putih
+Contoh I/O :
+> searchClothesBysKeyword
+> Masukkan kata kunci : putih
+  1. putih
+  Nama Baju : polo Shirt
+  Kategori Baju : kaos
+  Bahan Baju: katun
+  S: 10 M: 15 L: 20 XL:10
+  Rp. 50000
+  Banyak dibeli : 10
+  2. putih
+  Nama Baju : giodarno shirt
+  Kategori Baju : kaos
+  Bahan Baju: katun
+  S: 10 M: 15 L: 20 XL:10
+  Rp. 60000
+  Banyak dibeli : 30
 
+I.S. : Semua Array pada StokBaju sudah terisi
+F.S. : Menampilkan list barang yang mengandung keyword yang dimasukkan
 }
 
-{ 
-  I.S. : 
-  F.S. :
-}
-
-procedure searchClothesBysKeyword(eSB : StokBaju);
+procedure searchClothesByKeyword(eSB : StokBaju);
 //Kamus Lokal
 
 Var
 sKeyword : string; //variabel untuk menampung input user
 bCek : boolean;    //validasi ketika sebuah sKeyword telah ditemukan
-i : integer;
-iA : integer;
+i : integer;      
+iA : integer;      //Bariabel untuk penomoran
+
 // Algoritma
 
 begin
-	writeln('==================');
-	writeln('- Search Clothes -');
-	writeln('==================');
-	writeln();
-	write('Masukkan kata kunci : ');
+	write('> Masukkan kata kunci : ');
 	readln(sKeyword);
 
+  //Nilai awal variabel
 	bCek := FALSE;
 	iA:= 0;
-	for i:=1 to coKapasitasMaksimum do
+
+  //Pengulangan untuk menemukan list barang yang mengandung keyword
+	for i:=1 to ambilNeff('SB') do
 	begin
 		if sKeyword = eSB[i].sNamaBaju then
 		begin
 			writeln();
 			iA:= iA+1;
-			writeln(iA, '. ', eSB[i].sNamaBaju);
-			writeln('    Kategori Baju : ', eSB[i].sKategoriBaju);
-			writeln('    Bahan Baju : ', eSB[i].sBahanBaju);
-			writeln('    Warna : ', eSB[i].sWarnaBaju);
-			writeln('    S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
-			writeln('    Rp. ', eSB[i].iHarga);
-			writeln('    Banyak dibeli : ', eSB[i].iJumlahPembelian);
+			writeln('  ', iA, '. ', eSB[i].sNamaBaju);
+			writeln('  Kategori Baju : ', eSB[i].sKategoriBaju);
+			writeln('  Bahan Baju : ', eSB[i].sBahanBaju);
+			writeln('  Warna : ', eSB[i].sWarnaBaju);
+			writeln('  S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
+			writeln('  Rp. ', eSB[i].lHarga);
+			writeln('  Banyak dibeli : ', eSB[i].iJumlahPembelian);
 			bCek := true;
 		end
 		else if sKeyword = eSB[i].sKategoriBaju then
 		begin
 			writeln();
 			iA:= iA+1;
-			writeln(iA, '. ', eSB[i].sKategoriBaju);
-			writeln('    Nama Baju : ', eSB[i].sNamaBaju);
-			writeln('    Bahan Baju : ', eSB[i].sBahanBaju);
-			writeln('    Warna : ', eSB[i].sWarnaBaju);
-			writeln('    S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
-			writeln('    Rp. ', eSB[i].iHarga);
-			writeln('    Banyak dibeli : ', eSB[i].iJumlahPembelian);
+			writeln('  ', iA, '. ', eSB[i].sKategoriBaju);
+			writeln('  Nama Baju : ', eSB[i].sNamaBaju);
+			writeln('  Bahan Baju : ', eSB[i].sBahanBaju);
+			writeln('  Warna : ', eSB[i].sWarnaBaju);
+			writeln('  S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
+			writeln('  Rp. ', eSB[i].lHarga);
+			writeln('  Banyak dibeli : ', eSB[i].iJumlahPembelian);
 			bCek := true;
 		end
 		else if sKeyword = eSB[i].sWarnaBaju then
 		begin
 			writeln();
 			iA:= iA+1;
-			writeln(iA, '. ', eSB[i].sWarnaBaju);
-			writeln('    Nama Baju : ', eSB[i].sNamaBaju);
-			writeln('    Kategori Baju : ', eSB[i].sKategoriBaju);
-			writeln('    Bahan Baju : ', eSB[i].sBahanBaju);
-			writeln('    S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
-			writeln('    Rp. ', eSB[i].iHarga);
-			writeln('    Banyak dibeli : ', eSB[i].iJumlahPembelian);
+			writeln('  ', iA, '. ', eSB[i].sWarnaBaju);
+			writeln('  Nama Baju : ', eSB[i].sNamaBaju);
+			writeln('  Kategori Baju : ', eSB[i].sKategoriBaju);
+			writeln('  Bahan Baju : ', eSB[i].sBahanBaju);
+			writeln('  S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
+			writeln('  Rp. ', eSB[i].lHarga);
+			writeln('  Banyak dibeli : ', eSB[i].iJumlahPembelian);
 			bCek := true;
 		end;
 	end;
 
-//Pemberitahuan jika barang yang dicari tidak tersedia
+  //Pemberitahuan jika barang yang dicari tidak tersedia
 	if not(bCek) then
 	begin
 		writeln('    Barang Tidak Tersedia');
@@ -535,76 +545,94 @@ end;
 
 //----------------------------------------------
 // F5
-// Mengurutkan dan menampilkan baju berdasarkan harganya
+// Mengurutkan dan menampilkan baju berdasarkan harganya dari yang paling mahal ke yang murah
+
 {
-  Contoh i/o
+Contoh I/O :
+  > sortPrice
+  1. Rp. 80000
+  Nama Baju : polo Shirt
+  Kategori Baju : kaos
+  Bahan Baju: katun
+  warna : putih
+  S: 10 M: 15 L: 20 XL:10
+  Banyak dibeli : 10
+  2. Rp. 50000
+  Nama Baju : Giodarno Shirt
+  Kategori Baju : kaos
+  Bahan Baju: katun
+  warna : pink
+  S: 10 M: 15 L: 20 XL:10
+  Banyak dibeli : 18
+  3. Rp. 30000
+  Nama Baju : bellano shirt
+  Kategori Baju : kaos
+  Bahan Baju: katun
+  warna : putih
+  S: 10 M: 15 L: 20 XL:10
+  Banyak dibeli : 20
+
+I.S. : Semua Array pada StokBaju sudah terisi
+F.S. : Menampilkan semua daftar baju yang sudah diurutkan dari yang paling mahal 
+       ke yang paling murah
 }
-{ 
-  I.S. : 
-  F.S. :
-}
+
 procedure sortPrice(eSB : StokBaju);
 //Kamus Lokal
 
 type
-simpan = array [1..coKapasitasMaksimum] of integer;
+simpan = array [1..coKapasitasMaksimum] of longint;
+indeks = array [1..coKapasitasMaksimum] of integer;
 
 var
 i,j	 : integer;   //indeks untuk transversal tabel
 pass : integer;   //tahapan pengurutan
-temp : integer;   //memorisasi harga untuk pertukaran
+temp : longint;   //memorisasi harga untuk pertukaran
 imax : integer;   //indeks dimana array bernilai maksimum
-eSimpan : simpan; //penyimpanan dan penampungan harga yang sudah terurut maupun yang belum terurut
+eSimpan : simpan; //penyimpanan dan penampungan harga dari baju yang sudah terurut maupun yang belum terurut
+eIndeks : indeks; //penyimpanan indeks yang sudah terurut
+
 // Algoritma
 
 begin
-
-	writeln('==================');
-	writeln('  - Sort Price -');
-	writeln('==================');
-	writeln();
-
 	//Menyimpan semua harga dari daftar baju ke sebuah variabel penampung sementara
-	for i:=1 to coKapasitasMaksimum do
+	for i:=1 to ambilNeff('SB') do
 	begin
-		eSimpan[i] := eSB[i].iHarga;
+		eSimpan[i] := eSB[i].lHarga;
+		eIndeks[i] := i;
 	end;
 
-	//Mengurutkan harga baju dan menyimpannya dalam harga
-	for pass := 1 to (coKapasitasMaksimum-1) do
+	//Mengurutkan harga baju dan menyimpan indeksnya
+	for pass := 1 to (ambilNeff('SB')-1) do
     begin
-    	imax := pass;
-    	for i:= pass +1 to coKapasitasMaksimum do
+    	for i:= pass+1 to ambilNeff('SB') do
     	begin
-    		if (eSimpan[imax] < eSimpan[i]) then
+    		if (eSimpan[pass] < eSimpan[i]) then
     		begin
-    			imax := i;
-    			temp := eSimpan[imax];
-    			eSimpan[imax] := eSimpan[pass];
-    			eSimpan[pass] := temp;
+    			temp := eSimpan[pass];
+    			eSimpan[pass] := eSimpan[i];
+    			eSimpan[i] := temp;
+    			j := eIndeks[pass];
+    			eIndeks[pass] := eIndeks[i];
+    			eIndeks[i] := j;
     		end;
     	end;
     end;
 
 //Menampilkan hasil urutan berdasarkan Harga paling mahal
-	for i:=1 to coKapasitasMaksimum do
+	for i:=1 to ambilNeff('SB') do
 	begin
-		for j:=1 to coKapasitasMaksimum do
 		begin
-			if eSimpan[i] = eSB[j].iHarga then
-			begin
-				writeln();
-				writeln(i, '. ','Rp. ', eSB[j].iHarga);
-				writeln('Nama Baju : ', eSB[j].sNamaBaju);
-				writeln('Kategori Baju : ', eSB[j].sKategoriBaju);
-				writeln('Bahan Baju : ', eSB[j].sBahanBaju);
-				writeln('Warna : ', eSB[j].sWarnaBaju);
-				writeln('S: ', eSB[j].iKetersediaanUkuranS, ' M: ', eSB[j].iKetersediaanUkuranM, ' L: ', eSB[j].iKetersediaanUkuranL, ' XL: ', eSB[j].iKetersediaanUkuranXL);
-				writeln('Banyak dibeli : ', eSB[j].iJumlahPembelian);
-			end;
+			writeln('  ', i, '. ','Rp. ', eSB[eIndeks[i]].lHarga);
+			writeln('  Nama Baju : ', eSB[eIndeks[i]].sNamaBaju);
+			writeln('  Kategori Baju : ', eSB[eIndeks[i]].sKategoriBaju);
+			writeln('  Bahan Baju : ', eSB[eIndeks[i]].sBahanBaju);
+			writeln('  Warna : ', eSB[eIndeks[i]].sWarnaBaju);
+			writeln('  S: ', eSB[eIndeks[i]].iKetersediaanUkuranS, ' M: ', eSB[eIndeks[i]].iKetersediaanUkuranM, ' L: ', eSB[eIndeks[i]].iKetersediaanUkuranL, ' XL: ', eSB[eIndeks[i]].iKetersediaanUkuranXL);
+			writeln('  Banyak dibeli : ', eSB[eIndeks[i]].iJumlahPembelian);
+			writeln();
 		end;
 	end;
-	
 end;
 
 
@@ -612,32 +640,33 @@ end;
 // F6
 // Menampilkan baju berdasarkan jenis baju, baju laki-laki/perempuan, ukuran,
 // warna. Filter yang digunakan memungkinkan multiple filter
+
 {
-> filterClothes
-> gender: perempuan
-> kategori: semua
-> ukuran: semua
-> warna: pink
-> 1. Kemeja polkadot
-  Warna: Pink
-  S: 10 M: 15 L: 20 XL: 10
-  Rp 45000
-  
-  2. Kaos kaki rabbit
-  Warna: pink
-  S: 10 M: 15 L: 20 XL: 10
-  Rp 15000
-  
-> filterClothes
-> gender: laki-laki
-> kategori: semua
-> ukuran: semua
-> warna: pink
-> barang tidak ditemukan
-}
-{ 
-  I.S. : 
-  F.S. :
+Contoh I/O :
+  > filterClothes
+  > gender: perempuan
+  > kategori: semua
+  > ukuran: semua
+  > warna: pink
+  > 1. Kemeja polkadot
+    Warna: Pink
+    S: 10 M: 15 L: 20 XL: 10
+    Rp 45000
+    
+    2. Kaos kaki rabbit
+    Warna: pink
+    S: 10 M: 15 L: 20 XL: 10
+    Rp 15000
+    
+  > filterClothes
+  > gender: laki-laki
+  > kategori: semua
+  > ukuran: semua
+  > warna: pink
+  > barang tidak ditemukan
+
+I.S. : Nilai Array pada StokBaju sudah terisi
+F.S. : Menampilkan daftar baju yang sudah di-filter gender, kategoru, ukuran, dan warnanya
 }
 procedure filterClothes(eSB : StokBaju);
 //Kamus Lokal
@@ -650,51 +679,47 @@ bCek : boolean;
 // Algoritma
 
 begin
-{
-jika ada tulisan semua maka nilainya itu pasti true sisanya seacrh lagi
-    tulis kode disini ...
-}
-	writeln('==================');
-	writeln('- Filter Clothes -');
-	writeln('==================');
-	writeln();
-	write('Gender   : ');
+
+	write('> Gender   : ');
 	readln(gender);
-	write('Kategori : ');
+	write('> Kategori : ');
 	readln(kategori);
-	write('Ukuran   : ');
+	write('> Ukuran   : ');
 	readln(ukuran);
-	write('Warna    : ');
+	write('> Warna    : ');
 	readln(warna);
 	writeln();
 
+  //Nilai awal variabel
 	bCek := FALSE;
 	nomor := 1;
-	for i:=1 to coKapasitasMaksimum do
+
+	for i:=1 to ambilNeff('SB') do
 	begin
 		if ((gender = eSb[i].sGenderPemakai) or (gender = 'semua')) and ((kategori = eSB[i].sKategoriBaju) or (kategori = 'semua')) and ((warna = eSB[i].sWarnaBaju) or (warna = 'semua')) 
 		and (((ukuran = 'S') and (eSB[i].iKetersediaanUkuranS > 0)) or ((ukuran = 'M') and (eSB[i].iKetersediaanUkuranM > 0)) or ((ukuran = 'L') and (eSB[i].iKetersediaanUkuranL > 0)) or ((ukuran = 'XL') and (eSB[i].iKetersediaanUkuranXL > 0)) or (ukuran = 'semua')) then
 		begin
 			writeln();
-			writeln(nomor, '. ');
-			writeln('Nama Baju : ', eSB[i].sNamaBaju);
-			writeln('Kategori Baju : ', eSB[i].sKategoriBaju);
-			writeln('Bahan Baju : ', eSB[i].sBahanBaju);
-			writeln('Warna : ', eSB[i].sWarnaBaju);
-			writeln('Rp. ',eSB[i].iHarga);
-			writeln('S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
-			writeln('Banyak dibeli : ', eSB[i].iJumlahPembelian);
+			writeln('  ', nomor, '. ');
+			writeln('  Nama Baju : ', eSB[i].sNamaBaju);
+			writeln('  Kategori Baju : ', eSB[i].sKategoriBaju);
+			writeln('  Bahan Baju : ', eSB[i].sBahanBaju);
+			writeln('  Warna : ', eSB[i].sWarnaBaju);
+			writeln('  Rp. ',eSB[i].lHarga);
+			writeln('  S: ', eSB[i].iKetersediaanUkuranS, ' M: ', eSB[i].iKetersediaanUkuranM, ' L: ', eSB[i].iKetersediaanUkuranL, ' XL: ', eSB[i].iKetersediaanUkuranXL);
+			writeln('  Banyak dibeli : ', eSB[i].iJumlahPembelian);
 			nomor := nomor+1;
 			bCek := true;
 		end;
 	end;
 
+  //Pemberitahuan jika barang yang di-filter tidak ditemukan
 	if not(bCek) then
 	begin
-		writeln('Barang tidak ditemukan');
+		writeln('  Barang tidak ditemukan');
 	end;
-end;
 
+end;
 
 
 //----------------------------------------------
@@ -721,34 +746,116 @@ end;
 
 //----------------------------------------------
 // F8
-// Mencari dan menampilkan daftar barang yang akan dikirim ke kota tertentu.
-// Pencarian tidak hanya ke kota tertentu saja tetapi bisa juga untuk
-// menampilkan semuanya ke seluruh kota
+//Menampilkan daftar semua ekspedisi ke suatu kota
+//maupun menampilkan ke seluruh kota
+
 {
-> showExpedition
-> Masukkan nama kota: Batam
-> Layanan tersedia: TIKI, JNE
+Contoh I/O :
+  > showExpedition
+  > Masukkan nama kota: Batam
+  > Layanan tersedia: TIKI, JNE
 
-> showExpedition
-> Masukkan nama kota: Maluku
-> Layanan tersedia: tidak tersedia
+  > showExpedition
+  > Masukkan nama kota: Maluku
+  > Layanan tersedia: tidak tersedia
 
-> showExpedition
-> Masukkan nama kota: semua
-> Layanan tersedia: TIKI, JNE, Pos Indonesia
+  > showExpedition
+  > Masukkan nama kota: semua
+  > Layanan tersedia: TIKI, JNE, Pos Indonesia
+ 
+I.S. : Nilai array pada EkspedisiPengiriman sudah terisi
+F.S. : Menampilkan daftar ekspedisi yang terdaoat pada kota tertentu
 }
-{ 
-  I.S. : 
-  F.S. :
-}
+
 procedure showExpedition(eEP : EkspedisiPengiriman);
+//Kamus Lokal
+
+type
+  ekspedisiKota = Array [1..coKapasitasMaksimum] of string;
+
+var
+  i,j,iNeffEkspedisi : integer;
+  namaKota : string;             //Variabel untuk menampung input user
+  listEskpedisi : ekspedisiKota; //list untuk menampung nilai ekspedisi yang sudah difilter
+  cek : boolean;
+
 // Algoritma
+
 begin
-{
 
-    tulis kode disini ...
+  write('> Masukkan nama kota : ');
+  readln(namaKota);
+  write('> Layanan tersedia: ');
 
-}
+  //Nilai awal variabel
+  iNeffEkspedisi := 1;
+  cek := False;
+
+  if namaKota <> 'semua' then
+  begin
+    //Pengulangan untuk melakukan searching list ekspedisi
+    for i:=1 to ambilNeff('EP') do
+    begin
+      if namaKota = eEP[i].sNamaKota then
+      begin
+        listEskpedisi[iNeffEkspedisi] := eEP[i].sNamaEkspedisi;
+        iNeffEkspedisi := iNeffEkspedisi+1;
+        cek := true;
+      end;
+    end;
+
+    //Pengulangan untuk menampilkan list ekspedisi
+    if cek = true then
+    begin
+      for i:=1 to (iNeffEkspedisi-1) do
+      begin
+        if (i <> (iNeffEkspedisi-1)) then
+        begin
+          write(listEskpedisi[i], ', ');
+        end else //kondisi ketika (i = iNeffEkspedisi)
+        begin
+          write(listEskpedisi[i]);
+        end;
+      end;
+    end else
+    begin
+      write('Ekspedisi ke kota ', namaKota, ' tidak tersedia');
+    end;
+
+  writeln();  
+  end else
+  begin
+    //Nilai awal array untuk melakukan pengecekan
+    listEskpedisi[1] := eEP[1].sNamaEkspedisi;
+
+    //Pengulangan untuk menemukan ekspedisi yang tidak sama
+    for j:=1 to iNeffEkspedisi do
+    begin
+      for i:=2 to ambilNeff('EP') do
+      begin
+        if eEP[i].sNamaEkspedisi <> listEskpedisi[iNeffEkspedisi] then
+        begin
+          iNeffEkspedisi := iNeffEkspedisi+1;
+          listEskpedisi[iNeffEkspedisi] := eEP[i].sNamaEkspedisi;
+        end;
+      end;
+    end;
+   
+
+    //Pengulangan untuk menampilkan list ekspedisi
+    for i:=1 to (iNeffEkspedisi-1) do
+    begin
+      if i <> (iNeffEkspedisi-1) then
+      begin
+        write(listEskpedisi[i], ', ');
+      end else //kondisi ketika (i = iNeffEkspedisia)
+      begin
+        write(listEskpedisi[i]);
+      end;
+    end;
+    writeln();
+  end;
+    
 end;
 
 
